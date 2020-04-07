@@ -3,7 +3,12 @@
 #include <vector>
 using namespace std;
 
-
+// problem : all the numbers in the array are dublicated except for one, find it 
+// complexity
+// N is the size of the number array
+// time : O(N)
+// memory : O(N), N/2 + 1, in case first N/2 + 1 numbers are all unique 
+// and then we begin to find dublicates and remove them from the hash set
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
