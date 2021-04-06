@@ -56,6 +56,8 @@ int merge_sort(vector<int>& arr, int first, int last) {
 
 
 int find_inversions_slow(vector<int>& people) {
+    int bribes = 0;
+
     for (int i = 0; i < people.size(); i++) {
         for (int j = i + 1; j < people.size(); j++) {
             if (people[i] > people[j]) {
@@ -63,6 +65,8 @@ int find_inversions_slow(vector<int>& people) {
             }
         }
     }
+
+    return bribes;
 }
 
 void minimum_bribes(vector<int>& people) {
