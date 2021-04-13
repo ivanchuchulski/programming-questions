@@ -21,8 +21,7 @@ public:
                 }
             }
         }
-
-
+        
         return indicies;
     }
 };
