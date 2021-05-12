@@ -20,7 +20,8 @@ public:
         return false;
     }
     
-    bool isValid(string s) {
+    bool isValid(string s) 
+    {
         stack<char> st;
 
         for (char ch : s)
@@ -51,6 +52,7 @@ public:
         if (opening == PAREN_OPENING) return PAREN_CLOSING;
 
     }
+    
     bool isValid2(string s) {
         stack<char> closing_needed;
 
