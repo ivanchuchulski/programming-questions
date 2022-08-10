@@ -1,5 +1,6 @@
 package example;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -21,6 +22,7 @@ class BinarySearchTreeTest {
     }
 
     @Test
+    @Disabled
     void testAddingElementsInsertsThemInTheCorrectOrder2() {
         int[] values = new int[]{3, 1, 5, 4, 9};
         BinarySearchTree binarySearchTree = insertArrayValuesInTree(values);

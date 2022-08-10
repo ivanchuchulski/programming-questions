@@ -1,6 +1,4 @@
 
-Z
-*src/example/test/SinglyLinkedListTest.java,a\7\a7c21ab9f96e047a91f7b53da0097c972554d18c
 V
 &test/example/SinglyLinkedListTest.java,8\4\8481a017d262c2315f2813aa344ef7e1a594cb20
 Q
@@ -17,3 +15,7 @@ J
 src/example/Traversal.java,2\3\2338ebfc903929b622d0552c1ac60a399f393c61
 V
 &test/example/BinarySearchTreeTest.java,2\4\24ef3566ef659ad486cdc7c82cb8cb2466775977
+n
+>test/example/leetcode/Leetcode_58_Length_of_Last_WordTest.java,4\3\43b34dbc3c3870bf7ee1a948454ccb68e6cfbc97
+i
+9src/example/leetcode/Leetcode_58_Length_of_Last_Word.java,0\c\0cd08614a6c36ebd18ef4e7ca7e3cc1ca9306445

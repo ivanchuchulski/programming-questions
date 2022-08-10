@@ -1,9 +1,0 @@
-
-N	java:S106"9Replace this use of System.out or System.err by a logger.(Å»¹
-N	java:S106"9Replace this use of System.out or System.err by a logger.(˜’Íä
-N	java:S1060"9Replace this use of System.out or System.err by a logger.(Å»¹
-N	java:S1061"9Replace this use of System.out or System.err by a logger.(˜’Íä
-Q
-java:S1611F"/Remove the parentheses around the "e" parameter(ı†¯†øÿÿÿÿ8™½ÙÓ¤0
-Z	java:S106I"9Replace this use of System.out or System.err by a logger.(ö³–òÿÿÿÿÿ8õÙÒÓ¤0
-U	java:S106J"9Replace this use of System.out or System.err by a logger.(˜’Íä8õÙÒÓ¤0
