@@ -21,6 +21,10 @@ public class BinarySearchTree {
         return size;
     }
 
+    public boolean contains(int value) {
+        return containsRecursive(root, value);
+    }
+
     public void insert(int value) {
         if (size == 0) {
             root = new TreeNode(value);
@@ -47,6 +51,21 @@ public class BinarySearchTree {
         }
 
         return treenode;
+    }
+
+
+    private boolean containsRecursive(TreeNode node, int value) {
+        if (node == null) {
+            return false;
+        }
+
+        if (node.value == value) {
+            return true;
+        } else if (value < node.value) {
+            return containsRecursive(node.left, value);
+        } else {
+            return containsRecursive(node.right, value);
+        }
     }
 
     public class TreeNode {

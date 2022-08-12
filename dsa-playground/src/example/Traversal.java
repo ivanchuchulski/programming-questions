@@ -40,8 +40,8 @@ public abstract class Traversal {
                 return;
             }
 
-            treeElements[insertIndex.postfixIncrement()] = node.getValue();
             traverseMethod(node.getLeft(), treeElements, insertIndex);
+            treeElements[insertIndex.postfixIncrement()] = node.getValue();
             traverseMethod(node.getRight(), treeElements, insertIndex);
         }
     }
@@ -53,8 +53,8 @@ public abstract class Traversal {
                 return;
             }
 
-            traverseMethod(node.getLeft(), treeElements, insertIndex);
             treeElements[insertIndex.postfixIncrement()] = node.getValue();
+            traverseMethod(node.getLeft(), treeElements, insertIndex);
             traverseMethod(node.getRight(), treeElements, insertIndex);
         }
     }
