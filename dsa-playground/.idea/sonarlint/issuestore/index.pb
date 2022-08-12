@@ -17,5 +17,3 @@ V
 &test/example/BinarySearchTreeTest.java,2\4\24ef3566ef659ad486cdc7c82cb8cb2466775977
 n
 >test/example/leetcode/Leetcode_58_Length_of_Last_WordTest.java,4\3\43b34dbc3c3870bf7ee1a948454ccb68e6cfbc97
-i
-9src/example/leetcode/Leetcode_58_Length_of_Last_Word.java,0\c\0cd08614a6c36ebd18ef4e7ca7e3cc1ca9306445

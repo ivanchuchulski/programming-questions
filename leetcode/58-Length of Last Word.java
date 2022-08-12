@@ -1,4 +1,4 @@
-class Solution {
+class PlusOne {
     public int lengthOfLastWord(String s) {
         int result = 0;
         char spaceLiteral = ' ';
