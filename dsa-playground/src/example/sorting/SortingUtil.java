@@ -1,6 +1,8 @@
 package example.sorting;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public interface SortingUtil {
@@ -75,6 +77,42 @@ public interface SortingUtil {
     }
 
     class MergeSort {
+        public static void sort(int[] arr, int first, int last) {
+            if (first < last) {
+                int middle = first + (last - first) / 2;
+
+                sort(arr, first, middle);
+                sort(arr, middle + 1, last);
+
+                mergeSortedArrays(arr, first, middle, last);
+            }
+        }
+
+        private static void mergeSortedArrays(int[] arr, int first, int middle, int last) {
+            int size = last - first + 1;
+            List<Integer> sorted = new ArrayList<>(size);
+
+            int left = first;
+            int right = middle + 1;
+
+            for (int i = 0; i < size; i++) {
+                if (left > middle) {
+                    sorted.add(arr[right++]);
+                } else if (right > last) {
+                    sorted.add(arr[left++]);
+                }
+                // compare with <= if we want to preserve order, i.e. stable algorithm
+                else if (arr[left] <= arr[right]) {
+                    sorted.add(arr[left++]);
+                } else {
+                    sorted.add(arr[right++]);
+                }
+            }
+
+            for (int i = 0; i < size; i++) {
+                arr[first++] = sorted.get(i);
+            }
+        }
     }
 
     class CountingSort implements SortingUtil {

@@ -102,6 +102,14 @@ class SortingUtilTest {
         assertArrayEquals(sortedRanged, rangedArray);
     }
 
+    @Test
+    void testMergeSort() {
+        SortingUtil.MergeSort.sort(unsorted, 0, unsorted.length - 1);
+
+        assertArrayEquals(expectedSortedArray, unsorted);
+
+    }
+
     // source : https://stackoverflow.com/a/1520212/9127495
     private void shuffleArray(int[] arr) {
         Random random = new Random();
