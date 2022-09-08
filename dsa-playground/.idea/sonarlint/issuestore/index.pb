@@ -1,8 +1,6 @@
 
 V
 &test/example/SinglyLinkedListTest.java,8\4\8481a017d262c2315f2813aa344ef7e1a594cb20
-Q
-!src/example/SinglyLinkedList.java,5\8\58a29e00ecd0a26eb3d42231ee746db663accabd
 B
 dsa-playground.iml,d\5\d55ba51e2f60848ebfb11a736691cbe340570b73
 n
@@ -21,13 +19,9 @@ Z
 *src/example/leetcode/Leetcode_69_Sqrt.java,a\e\aeda8b643be947e7d54c477c652e7940c4208568
 L
 src/example/SortingUtil.java,b\0\b06eef6cfae0398244e99c6628744a3021dbf20b
-Q
-!test/example/SortingUtilTest.java,6\3\63f75dea5c19a5cfc567123911b18441b6daa04d
 V
 &src/example/BinarySearchTreeUtils.java,6\f\6faf0f4baa28feae9859fad73a15edcb5ae794a1
 Q
 !src/example/BinarySearchTree.java,c\6\c6a8dc905771c1302be36c741beacf53226ab39e
 V
 &test/example/BinarySearchTreeTest.java,2\4\24ef3566ef659ad486cdc7c82cb8cb2466775977
-E
-src/example/Main.java,1\7\178c1cd33b1b400372a4624bfb6317b509964457

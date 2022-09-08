@@ -1,6 +1,6 @@
 package example;
 
-import example.SinglyLinkedList;
+import example.singly.linked.list.SinglyLinkedList;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package example;
+package example.bst;
 
 public abstract class Traversal {
     public int[] traverseAndRetrieveValues(BinarySearchTree binarySearchTree) {

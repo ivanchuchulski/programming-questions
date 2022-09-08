@@ -1,5 +1,7 @@
 package example;
 
+import example.bst.BinarySearchTree;
+import example.bst.Traversal;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

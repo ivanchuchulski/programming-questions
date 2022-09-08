@@ -1,11 +1,17 @@
-package example;
+package example.sorting;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public interface SortingUtil {
 
     void sort(int[] arr);
 
-    class SelectionSort implements SortingUtil {
+    default void sort(int[] arr, int rangeStart, int rangeEndInclusive) {
+        throw new UnsupportedOperationException();
+    }
 
+    class SelectionSort implements SortingUtil {
         @Override
         public void sort(int[] arr) {
             for (int i = 0; i < arr.length; i++) {
@@ -61,6 +67,40 @@ public interface SortingUtil {
             //             swap(arr, j, j - 1);
             //         }
             //     }
+        }
+    }
+
+    class QuickSort {
+
+    }
+
+    class MergeSort {
+    }
+
+    class CountingSort implements SortingUtil {
+
+        @Override
+        public void sort(int[] arr) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void sort(int[] arr, int rangeStart, int rangeEndInclusive) {
+            int rangeSize = Math.abs(rangeEndInclusive - rangeStart) + 1;
+            Map<Integer, Integer> elements = new HashMap<>(rangeSize);
+
+            for (int num : arr) {
+                Integer count = elements.getOrDefault(num, 0);
+                elements.put(num, count + 1);
+            }
+
+            int j = 0;
+            for (int i = rangeStart; i <= rangeEndInclusive; i++) {
+                Integer count = elements.get(i);
+                for (int times = 0; times < count; times++) {
+                    arr[j++] = i;
+                }
+            }
         }
     }
 

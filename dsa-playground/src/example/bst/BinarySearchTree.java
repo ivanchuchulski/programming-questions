@@ -1,4 +1,4 @@
-package example;
+package example.bst;
 
 public class BinarySearchTree {
     private TreeNode root;

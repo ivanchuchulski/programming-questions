@@ -1,4 +1,4 @@
-package example;
+package example.singly.linked.list;
 
 import java.util.Objects;
 
