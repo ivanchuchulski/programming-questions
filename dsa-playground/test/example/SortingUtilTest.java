@@ -65,6 +65,15 @@ class SortingUtilTest {
     }
 
     @Test
+    void testInsertionSortDoesNotSortSortedArray() {
+        int[] sorted = Arrays.stream(unsorted).sorted().toArray();
+
+        new SortingUtil.InsertionSort().sort(sorted);
+
+        assertArrayEquals(expectedSortedArray, sorted);
+    }
+
+    @Test
     void testCountingSortSortsUnsortedArray() {
         int rangeStart = -5;
         int rangeEnd = 5;
@@ -77,7 +86,7 @@ class SortingUtilTest {
         int[] sortedRanged = Arrays.copyOf(rangedArray, rangedArray.length);
         shuffleArray(rangedArray);
 
-        new SortingUtil.CountingSort().sort(rangedArray, rangeStart, rangeEnd);
+        new SortingUtil.CountingSort().sort(rangedArray);
 
         assertArrayEquals(sortedRanged, rangedArray);
     }
@@ -97,17 +106,40 @@ class SortingUtilTest {
         integers.sort(Integer::compareTo);
         int[] sortedRanged = integers.stream().mapToInt(integer -> integer).toArray();
 
-        new SortingUtil.CountingSort().sort(rangedArray, rangeStart, rangeEnd);
+        new SortingUtil.CountingSort().sort(rangedArray);
 
         assertArrayEquals(sortedRanged, rangedArray);
     }
 
     @Test
-    void testMergeSort() {
-        SortingUtil.MergeSort.sort(unsorted, 0, unsorted.length - 1);
+    void testMergeSortSortsUnsortedArray() {
+        new SortingUtil.MergeSort().sort(unsorted);
 
         assertArrayEquals(expectedSortedArray, unsorted);
+    }
 
+    @Test
+    void testMergeSortDoesNotSortSortedArray() {
+        int[] sorted = Arrays.stream(unsorted).sorted().toArray();
+
+        new SortingUtil.MergeSort().sort(sorted);
+
+        assertArrayEquals(expectedSortedArray, sorted);
+    }
+
+    @Test
+    void testQuickSortSortsUnsortedArray() {
+        new SortingUtil.QuickSort().sort(unsorted);
+
+        assertArrayEquals(expectedSortedArray, unsorted);
+    }
+
+    @Test
+    void testQuickSortDoesNotSortSortedArray() {
+        int[] sorted = Arrays.stream(unsorted).sorted().toArray();
+        new SortingUtil.QuickSort().sort(sorted);
+
+        assertArrayEquals(expectedSortedArray, sorted);
     }
 
     // source : https://stackoverflow.com/a/1520212/9127495

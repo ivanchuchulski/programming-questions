@@ -9,10 +9,6 @@ public interface SortingUtil {
 
     void sort(int[] arr);
 
-    default void sort(int[] arr, int rangeStart, int rangeEndInclusive) {
-        throw new UnsupportedOperationException();
-    }
-
     class SelectionSort implements SortingUtil {
         @Override
         public void sort(int[] arr) {
@@ -56,6 +52,10 @@ public interface SortingUtil {
     class InsertionSort implements SortingUtil {
         @Override
         public void sort(int[] arr) {
+            insertionSort1(arr);
+        }
+
+        private void insertionSort1(int[] arr) {
             for (int i = 0; i < arr.length - 1; i++) {
                 int j = i;
                 while (j >= 0 && j < arr.length && arr[j + 1] < arr[j]) {
@@ -63,26 +63,63 @@ public interface SortingUtil {
                     j--;
                 }
             }
-            // equivalently
-            //     for (int i = 1; i < arr.length; i++) {
-            //         for (int j = i; j > 0 && arr[j] < arr[j - 1]; j--) {
-            //             swap(arr, j, j - 1);
-            //         }
-            //     }
+        }
+
+        private void insertionSort2(int[] arr) {
+            for (int i = 1; i < arr.length; i++) {
+                for (int j = i; j > 0 && arr[j] < arr[j - 1]; j--) {
+                    swap(arr, j, j - 1);
+                }
+            }
         }
     }
 
-    class QuickSort {
+    class QuickSort implements SortingUtil {
 
+        @Override
+        public void sort(int[] arr) {
+            quickSort(arr, 0, arr.length - 1);
+        }
+
+        private void quickSort(int[] arr, int first, int last) {
+            if (first < last) {
+                int pivotIndex = partition(arr, first, last);
+
+                quickSort(arr, first, pivotIndex - 1);
+                quickSort(arr, pivotIndex + 1, last);
+            }
+        }
+
+        private int partition(int[] arr, int first, int last) {
+            int pivot = arr[last];
+            int border = first;
+
+            for (int i = first; i < last; i++) {
+                if (arr[i] <= pivot) {
+                    swap(arr, i, border);
+                    border++;
+                }
+            }
+
+            swap(arr, border, last);
+
+            return border;
+        }
     }
 
-    class MergeSort {
-        public static void sort(int[] arr, int first, int last) {
+    class MergeSort implements SortingUtil {
+
+        @Override
+        public void sort(int[] arr) {
+            mergeSort(arr, 0, arr.length - 1);
+        }
+
+        private static void mergeSort(int[] arr, int first, int last) {
             if (first < last) {
                 int middle = first + (last - first) / 2;
 
-                sort(arr, first, middle);
-                sort(arr, middle + 1, last);
+                mergeSort(arr, first, middle);
+                mergeSort(arr, middle + 1, last);
 
                 mergeSortedArrays(arr, first, middle, last);
             }
@@ -101,7 +138,7 @@ public interface SortingUtil {
                 } else if (right > last) {
                     sorted.add(arr[left++]);
                 }
-                // compare with <= if we want to preserve order, i.e. stable algorithm
+                // compare with '<=' if we want to preserve order, i.e. stable algorithm
                 else if (arr[left] <= arr[right]) {
                     sorted.add(arr[left++]);
                 } else {
@@ -113,17 +150,26 @@ public interface SortingUtil {
                 arr[first++] = sorted.get(i);
             }
         }
+
+
     }
 
     class CountingSort implements SortingUtil {
 
         @Override
         public void sort(int[] arr) {
-            throw new UnsupportedOperationException();
+            int rangeStart = Integer.MAX_VALUE;
+            int rangeEndInclusive = Integer.MIN_VALUE;
+
+            for (int num : arr) {
+                rangeStart = Math.min(num, rangeStart);
+                rangeEndInclusive = Math.max(num, rangeEndInclusive);
+            }
+
+            countingSort(arr, rangeStart, rangeEndInclusive);
         }
 
-        @Override
-        public void sort(int[] arr, int rangeStart, int rangeEndInclusive) {
+        private void countingSort(int[] arr, int rangeStart, int rangeEndInclusive) {
             int rangeSize = Math.abs(rangeEndInclusive - rangeStart) + 1;
             Map<Integer, Integer> elements = new HashMap<>(rangeSize);
 
