@@ -24,6 +24,12 @@ public interface SearchingUtil {
 
         @Override
         public int search(int[] arr, int element) {
+            int prev = arr[0];
+            for (int i = 1; i < arr.length; i++) {
+                if (prev > arr[i]) {
+                    throw new IllegalArgumentException("array must be sorted");
+                }
+            }
             return helper(arr, 0, arr.length - 1, element);
         }
 
