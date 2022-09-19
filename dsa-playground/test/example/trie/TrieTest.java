@@ -51,4 +51,12 @@ class TrieTest {
         assertTrue(trie.contains(word));
         assertTrue(trie.contains(subword));
     }
+
+    @Test
+    void testEmptyTrieDoesNotContainSpace() {
+        Trie trie = new Trie();
+
+        String s = String.valueOf(' ');
+        assertFalse(trie.contains(s));
+    }
 }
