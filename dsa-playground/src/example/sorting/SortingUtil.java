@@ -1,6 +1,7 @@
 package example.sorting;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -166,7 +167,10 @@ public interface SortingUtil {
                 rangeEndInclusive = Math.max(num, rangeEndInclusive);
             }
 
-            countingSort(arr, rangeStart, rangeEndInclusive);
+            countingSortWithArray(arr, rangeStart, rangeEndInclusive);
+
+            // or use variant with map
+            // countingSort(arr, rangeStart, rangeEndInclusive);
         }
 
         private void countingSort(int[] arr, int rangeStart, int rangeEndInclusive) {
@@ -185,6 +189,39 @@ public interface SortingUtil {
                     arr[j++] = i;
                 }
             }
+        }
+
+        private void countingSortWithArray(int[] arr, int rangeStart, int rangeEndInclusive) {
+            int rangeSize = Math.abs(rangeEndInclusive - rangeStart) + 1;
+            int[] elements = new int[rangeSize];
+            Arrays.fill(elements, 0);
+
+            for (int num : arr) {
+                elements[mapToArrayIndex(num, rangeStart)]++;
+            }
+
+            int j = 0;
+            for (int i = 0; i < elements.length; i++) {
+                for (int k = 0; k < elements[i]; k++) {
+                    arr[j++] = mapToValue(i, rangeStart);
+                }
+            }
+
+            // equivalently
+            // for (int i = rangeStart; i <= rangeEndInclusive; i++) {
+            //     int times = elements[mapToArrayIndex(i, rangeStart)];
+            //     for (int k = 0; k < times; k++) {
+            //         arr[j++] = i;
+            //     }
+            // }
+        }
+
+        private int mapToArrayIndex(int value, int rangeStart) {
+            return value - rangeStart;
+        }
+
+        private int mapToValue(int index, int rangeStart) {
+            return index + rangeStart;
         }
     }
 
